@@ -1,0 +1,9 @@
+[
+    [
+      {"area": "SquareFeet ", "value": 51.41},
+      {"area": "GarageArea", "value": 45.40},
+      {"area": "LivingArea ", "value": 34.27},
+      {"area": "RemodeledYear", "value": 40.23},
+      {"area": "Rooms", "value": 31.94}
+  	]
+  ]

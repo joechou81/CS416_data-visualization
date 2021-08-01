@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CS416 Final Project</title>
+  <link rel="stylesheet" type"text/css" href="style.css"></style>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
+  <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+  <script type="text/javascript" src="Chart_1.js"></script>
+  <script type="text/javascript" src="Chart_2.js"></script>
+  <script type="text/javascript" src="Chart_3.js"></script>
+  <script type="text/javascript" src="Chart_4.js"></script>
+  <script type="text/javascript" src="RadioPress1.js"></script>
+  <script type="text/javascript" src="legend.js"></script>
+
+</head>
+<body>
+
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+
+
+</div>
+
+<div class="slideshow-container">
+
+<div class="mySlides Opening">
+  <h1>Boston House Price Correlation Factors</h1>
+  <h2>CS416 Data Visualization Final Project</h2>
+  <div class="text">
+  Created by Jauyu Chou
+  </div>
+</div>
+
+
+
+<div class="mySlides Introduction">
+  <h2>Introduction</h2>
+  <h4>
+  <Strong>Dataset:</Strong>
+  <h5>This dataset is downloaded at website <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques" target="_blank">https://www.kaggle.com/c/house-prices-advanced-regression-techniques</a> .The goal of this data visualization is to find the relation between the sales price of a house and other variables, such as the total square feet, garage space, living space, number of rooms, and remodeled year. Moreover, this data visualization shows the price varying from 2006 to 2010. The utilized data is pre-processed using R and MATLAB offline to emphasize the relationships among the variables with the house price.  </h5>
+  </h4>
+  <h4>
+  <Strong>Visualization Structure</Strong>
+  <h5>This narrative visualization follows an interactive slideshow, where the users are allowed to explore in some slides. Because there are multiple variables that affects the house price, selecting an interactive slideshow for visualization is adequate to observe difference between variables.</h5>
+  </h4>
+  <h4>
+  <Strong>Scenes</Strong>
+  <h5>Four scenes are included in this visualization using a consistent template and layout. The colors of each type of variable are consistent throughout the whole visualization. The slides can be navigated using arrows at left or right, or even using the dots on top. The visualization starts from observing variables from the big picture. Then, the variables are quantized for comparison and presented in different charts to observe the relationships.</h5>
+  </h4>
+  <h4>
+  <Strong>Annotations</Strong>
+  <h5>In each chart, orange-colored boxes and text is used to highlight the takeaway of the chart. For example, in the first chart, the orange box indicates that the houses are sold more during spring and summer compared to other months. If selecting a single variable using the radio button, then the annotations will indicate the overall relationship between the selected variable and the house price.</h5>
+  </h4>
+  <h4>
+  <Strong>Parameters</Strong>
+  <h5>Sold Date and house price are used as parameters at first to reveal the relationship between time and price. Then, the state changes along with the parameters change to accumulated number of houses sold within months, which highlights the relationship between sold month and number of houses sold. Next, the parameters change to individual variables, which now investigates the relationship between the variables and the house price. Finally, the variables are normalized to a comparable percentage to show the price influence ranking within the selected variables. </h5>
+  </h4>
+  <h4>
+  <Strong>Triggers</Strong>
+  <h5>For the first chart, the radio buttons serve as filters to change the color of the data points. That is, the color will turn into different gradient colors corresponding to different variables. This will reveal the overall relationship between the selected variable and the house price. Moreover, automated animation of the annotation is triggered as the figures are completely loaded. In the second chart, the number of bins of the histogram can be adjusted to see how the number of houses sold during different months. Transitions will take place as the bins are lowered to a certain number of bins. For the third chart, a button is designed to convert the chart from Line Chart into Radar Chart. Finally, in the radar chart, the influence value of each varaible can be accessed by demand. A tooltip will show up as the mouse moves over the poins.</h5>
+  </h4>
+
+  <div class="text">
+   This narrative visualization was created and checked using Chrome. Thus, selecting Chrome is recommended.
+ </div>
+</div>
+
+
+
+
+
+<!-- 1st Plot-->
+<div class="mySlides Slide1">
+  <h3>Housing Price From 2006 - 2010 </h3>
+  <div class="chart chart1">
+    <svg id="svg1" style = "background-color: white"></svg>
+    <script> chart_1() </script>
+    <div class="panel">
+      <input type="radio" name = "selec" value="SF" onclick="RadioPress1(1)"> Square Feet
+      <input type="radio" name = "selec" value="GA" onclick="RadioPress1(2)"> Garage Area
+      <input type="radio" name = "selec" value="LA" onclick="RadioPress1(3)"> Living Area
+      <input type="radio" name = "selec" value="RY" onclick="RadioPress1(4)"> Remodeled Year
+      <input type="radio" name = "selec" value="ST" onclick="RadioPress1(5)"> Room
+    </div>
+  </div>
+  <div class="text">
+    <h5> This Chart shows that houses are sold more in April to July compared to other months. Also, by clicking the buttons, we can see how the different variables affect the sold price. For the total square feet, garage space, living space, number of rooms, and remodeled year, the sales price will increase as the value of the variables increase. However, it is unclear how much difference is there, meaning both the number sold in a month and the influence intensity within each variable. </h5>
+    <h4>Let's take a look at the next scene!</h4>
+  </div>
+</div>
+
+<!-- 2nd Plot-->
+<div class="mySlides Slide2">
+  <h3>Histogram of Sold House and Sold Month </h3>
+  <div class="chart chart2">
+    <svg id="svg2"  style = "background-color: white"></svg>
+    <script>chart_2()</script>
+    <div class="panel">
+      #bins<input type="number" min="1" max="12" step="3" value="12" id="nBin">
+    </div>
+</div>
+<div class="text">
+  <h5> The histogram plots the number of houses sold within each month from 2006-2010. Now, we can see that the number of houses sold reaches the maximum in July. If lowering the bins to 4, we can see that houses are mostly sold from April to July. </h5>
+  <h4>Knowing the relation between time and number of houses sold, we can now see how different variables affect the house price in the next scene!</h4>
+</div>
+</div>
+
+<!-- 3rd Plot-->
+<div class="mySlides Slide3">
+  <h3>Normalized Value vs Normalized Price </h3>
+  <div class="chart chart3">
+    <svg id="svg3"  style = "background-color: white"></svg>
+    <script> 
+    chart_3()
+    var annotation = d3.select("#svg3").append('g');
+    annotation.append('rect')
+    .attr('id','myrect')
+    .attr('x', 230)
+    .attr('y', 55)
+    .attr('width', 250)
+    .attr('height', 90)
+    .classed('annotation', true);
+    annotation.append('text')
+    .attr('x', 60)
+    .attr('y', 30)
+    .classed('annotation', true)
+    .text('The remodeled year has negative effects on the house');
+    annotation.append('text')
+    .attr('x', 60)
+    .attr('y', 50)
+    .classed('annotation', true)
+    .text('price after a certain point!') 
+    </script>
+    <div style="text-align:center">
+      <button type="button" onclick="currentSlide(6)">Radar Chart!</button>
+    </div>
+  </div>
+    <div class="text">
+    <h5>From the line chart, we can see the influence of different variables on the house price. We can see from the red and gray lines, the relationship between square feet and the house price is linear. Also, the relationship between the living area and the house price is linear. For the number of rooms, garage area, and remodeled year, the house price will go straight up at the beginning, but will not continue to go up after reaching a certain point.</h5>
+    <h4>Click on the Radar Chart button! We can see the influence intensity of each variable.</h4>
+  </div>
+</div>
+
+<!-- 4th Plot-->
+<div class="mySlides Slide4">
+  <h3>RadarChart of Factor Influence on House Price</h3>
+  <div class="chart chart4">
+  <svg id="svg4" style = "background-color: white"></svg>
+  <script> 
+    chart_4()
+    var annotation = d3.select("#svg4").append('g');
+    annotation.append('rect')
+    .attr('id','myrect')
+    .attr('x', 220)
+    .attr('y', 130)
+    .attr('width', 50)
+    .attr('height', 50)
+    .classed('annotation', true);
+    annotation.append('text')
+    .attr('x', 220)
+    .attr('y', 110)
+    .classed('annotation', true)
+    .text('Affects the house price the most!')
+  </script>
+  </div>
+  <div class="text">
+    <h5>From the radar chart, we can see that the square feet influence the house price the most, and the number of rooms has the least influence.</h5>
+    <h4>Move the mouse around the points of the polygon!</h4>
+    <br><br><br><br><br><br><br>
+    <h3>Thank you for your time and attention!</h3>
+  </div>
+</div>
+
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html> 
