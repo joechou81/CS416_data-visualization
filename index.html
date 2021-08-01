@@ -64,7 +64,7 @@
   </h4>
   <h4>
   <Strong>Parameters</Strong>
-  <h5>Sold Date and house price are used as parameters at first to reveal the relationship between time and price. Then, the state changes along with the parameters change to accumulated number of houses sold within months, which highlights the relationship between sold month and number of houses sold. Next, the parameters change to individual variables, which now investigates the relationship between the variables and the house price. Finally, the variables are normalized to a comparable percentage to show the price influence ranking within the selected variables. </h5>
+  <h5>First, in the first slide, the parameters are the slide number, which changes from 1 to 6 for each slideshow. In the third slide, the parameters are the slide number and the value of the radio button, which will change as the user select. The value will then change the plot to gradient colored image, showing the relationship between variables and house price. In the second chart (4th slide), additional parameters such as the number box is added for adjusting the number of bins. For the third chart, the button value will change the slideshow number after clicked.</h5>
   </h4>
   <h4>
   <Strong>Triggers</Strong>
@@ -122,25 +122,7 @@
   <div class="chart chart3">
     <svg id="svg3"  style = "background-color: white"></svg>
     <script> 
-    chart_3()
-    var annotation = d3.select("#svg3").append('g');
-    annotation.append('rect')
-    .attr('id','myrect')
-    .attr('x', 230)
-    .attr('y', 55)
-    .attr('width', 250)
-    .attr('height', 90)
-    .classed('annotation', true);
-    annotation.append('text')
-    .attr('x', 60)
-    .attr('y', 30)
-    .classed('annotation', true)
-    .text('The remodeled year has negative effects on the house');
-    annotation.append('text')
-    .attr('x', 60)
-    .attr('y', 50)
-    .classed('annotation', true)
-    .text('price after a certain point!') 
+    chart_3() 
     </script>
     <div style="text-align:center">
       <button type="button" onclick="currentSlide(6)">Radar Chart!</button>

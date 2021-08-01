@@ -14,7 +14,7 @@ var svg = d3.select("#svg2")
 
 console.log("here")
 // get the data
-d3.csv("/PreSelection3.csv", function(data) {
+d3.csv("PreSelection3.csv", function(data) {
 
   // X axis: scale and draw:
   var parseDate = d3.timeParse("%m");

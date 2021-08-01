@@ -74,7 +74,7 @@ svg.selectAll("mylabels")
 
 
 // Get the data
-d3.csv("/smooth.csv", function(error, data) {
+d3.csv("smooth.csv", function(error, data) {
 
 
   // Add the valueline path.
@@ -141,4 +141,24 @@ d3.csv("/smooth.csv", function(error, data) {
       .text("Normalized Sold Price"); 
 
   })
+    var annotation = d3.select("#svg3").append('g');
+    annotation.append('rect')
+    .attr('id','myrect')
+    .attr('x', 230)
+    .attr('y', 55)
+    .attr('width', 250)
+    .attr('height', 90)
+    .classed('annotation', true);
+    annotation.append('text')
+    .attr('x', 60)
+    .attr('y', 30)
+    .classed('annotation', true)
+    .text('The remodeled year has negative effects on the house');
+    annotation.append('text')
+    .attr('x', 60)
+    .attr('y', 50)
+    .classed('annotation', true)
+    .text('price after a certain point!')
+
+
 }
