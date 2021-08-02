@@ -108,7 +108,6 @@ function RadioPress1(value){
     chart_2()
     chart_3()
     chart_4()
-    
   }
   else if (value == 2) {
     legend(svg, d3.schemeGreens[8][1], d3.schemeGreens[8][7], "Garage Area", 0, 1418) 
