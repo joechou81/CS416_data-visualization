@@ -133,6 +133,19 @@ function chart_4() {
     });
     series=0;
 
+var annotation = d3.selectAll("#svg4").append('g');
+annotation.append('rect')
+    .attr('id','myrect')
+    .attr('x', 220)
+    .attr('y', 130)
+    .attr('width', 50)
+    .attr('height', 50)
+    .classed('annotation', true);
+    annotation.append('text')
+    .attr('x', 220)
+    .attr('y', 110)
+    .classed('annotation', true)
+    .text('Affects the house price the most!')
 
 
 var tooltip = d3.select("body").append("div").attr("class", "toolTip");
